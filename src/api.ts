@@ -68,7 +68,7 @@ const fetchEmailBody: (id: string) => Promise<FetchEmailBodyResponse> = async (
 export const useFetchEmailList = (initialPage: number = 1) => {
   return useInfiniteQuery<FetchEmailListResponse, Error>({
     queryKey: ["emails"],
-    queryFn: ({ pageParam }) => fetchEmailList(pageParam),
+    queryFn: ({ pageParam }: any) => fetchEmailList(pageParam),
     initialPageParam: initialPage,
     getNextPageParam: (lastpage, index) => {
       if (index.length * 10 <= lastpage.total) {
